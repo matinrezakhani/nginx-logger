@@ -14,8 +14,7 @@ app.post("/", (req, res) => {
     let buff = new Buffer.from(log, "base64");
     log = buff.toString("ascii");
     log = JSON.parse(log);
-    let ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
-    let logMessage ='FROM: ' + ip +' / '+req.headers["user-agent"] + " : " + log.location +" => " + log.data
+    let logMessage ='FROM: '+req.headers["user-agent"] + " : " + log.location +" => " + log.data
     switch (log.type) {
       case "error":
         logger.error(logMessage);
@@ -29,8 +28,6 @@ app.post("/", (req, res) => {
       case "info":
         logger.info(logMessage);
         break;
-      default:
-        break;
     }
   } catch (error) {
     logger.error(error);
@@ -40,5 +37,5 @@ app.post("/", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`logger listening at */logger`);
+  logger.info(`logger listening at */logger`);
 });
