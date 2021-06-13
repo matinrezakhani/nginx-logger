@@ -1,15 +1,14 @@
-FROM node:current-alpine3.13
+FROM nginx:mainline-alpine
 
-RUN apk add nginx 
+RUN apk add nodejs 
 
 COPY nginx.conf /etc/nginx
 COPY logger_node /var/www/logger
-COPY run.sh /var/www/ 
+COPY start_logger.sh /var/www/ 
 
-RUN chmod +x /var/www/run.sh
-RUN nginx && nginx -s reload 
+RUN chmod +x /var/www/start_logger.sh
 
-CMD /var/www/run.sh
+CMD /var/www/start_logger.sh
 
 
 
