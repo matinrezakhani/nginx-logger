@@ -22,7 +22,7 @@ git clone https://git.kuknos.org/kuknos-internal/frontend-logging-baseimage.git
 
 #### in develop mode run logger in your system
 ```bash
-docker run -it -p 8080:80 repository.kuknos.org:3051/kuknos/nginx-logger:v100 // run loger and listen on port 8080
+docker run -it -p 8080:80 repository.kuknos.org:3051/kuknos/nginx-logger:v101 // run loger and listen on port 8080
 ```
 
 #### 1- Add [logger function](https://git.kuknos.org/kuknos-internal/frontend-logging-baseimage/-/blob/master/logger_front/logger.js)  in you frontend project
@@ -42,13 +42,13 @@ logger(type , location , message);
 
 ## build frontend
 
-### add `FROM repository.kuknos.org:3051/kuknos/nginx-logger:v100` in your Dockerfile 
+### add `FROM repository.kuknos.org:3051/kuknos/nginx-logger:v101` in your Dockerfile 
 
 <br>
 
 ### Dockerfile:
 ``` dockerfile
-FROM repository.kuknos.org:3051/kuknos/nginx-logger:v100
+FROM repository.kuknos.org:3051/kuknos/nginx-logger:v101
 
 RUN rm -rf /usr/share/nginx
 
