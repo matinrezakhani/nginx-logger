@@ -26,12 +26,11 @@ app.post("/", (req, res) => {
     log = buff.toString("ascii");
     log = JSON.parse(log);
     let logMessage =
-      "FROM: " +
-      req.headers["user-agent"] +
-      " : " +
       log.location +
       " => " +
-      log.data;
+      log.data +
+      " | From: " +
+      req.headers["user-agent"] 
     switch (log.type) {
       case "error":
         logger.error(logMessage);
