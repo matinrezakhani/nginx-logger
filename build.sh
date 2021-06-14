@@ -13,4 +13,4 @@ find ./build -type f -print0 | xargs -0 chmod 0644
 export IMAGE_NAME=kuknos/nginx-logger:$1
 docker build . --no-cache -t $IMAGE_NAME
 docker tag $IMAGE_NAME repository.kuknos.org:3051/$IMAGE_NAME
-#docker push repository.kuknos.org:3051/$IMAGE_NAME
+docker push repository.kuknos.org:3051/$IMAGE_NAME
