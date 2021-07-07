@@ -7,12 +7,12 @@
 
 #### **1- Clone** 
 ```bash
-git clone https://git.kuknos.org/kuknos-internal/frontend-logging-baseimage.git
+git clone git@github.com:matinrezakhani/nginx-logger.git
 ```
 
 #### **2- Build** 
 ```bash
-./build.sh <tag name>  // build docker image and push to kuknos repository
+./build.sh <tag name>  
 ```
 
 <br>
@@ -22,10 +22,10 @@ git clone https://git.kuknos.org/kuknos-internal/frontend-logging-baseimage.git
 
 #### in develop mode run logger in your system
 ```bash
-docker run -it -p 8080:80 repository.kuknos.org:3051/kuknos/nginx-logger:v101 // run loger and listen on port 8080
+docker run -it -p 8080:80 matinrezakhani/nginx-logger:1.0.0 
 ```
 
-#### 1- Add [logger function](https://git.kuknos.org/kuknos-internal/frontend-logging-baseimage/-/blob/master/logger_front/logger.js)  in you frontend project
+#### 1- Add [logger function](https://github.com/matinrezakhani/nginx-logger/blob/master/logger_front/logger.js)  in you frontend project
 
 
 #### 2- Use
@@ -42,13 +42,13 @@ logger(type , location , message);
 
 ## build frontend
 
-### add `FROM repository.kuknos.org:3051/kuknos/nginx-logger:v101` in your Dockerfile 
+### add `FROM matinrezakhani/nginx-logger:1.0.0` in your Dockerfile 
 
 <br>
 
 ### Dockerfile:
 ``` dockerfile
-FROM repository.kuknos.org:3051/kuknos/nginx-logger:v101
+FROM matinrezakhani/nginx-logger:1.0.0
 
 RUN rm -rf /usr/share/nginx
 
